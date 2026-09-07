@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: greencrew-hr-portal
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: NODE_VERSION
+        value: 24.15.1
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
